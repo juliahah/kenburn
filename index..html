@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="kenburns-slideshow"></div>
+	<!-- REMOVE or comment out this block -->
+<!--
+<div id="kenburns-description">
+  <h1 id="status">Loading Images..</h1>
+  <h1 id="slide-title"></h1>
+  <p>Kenburns.js is a lightweight and flexible jQuery gallery plugin...</p>
+</div>
+-->
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/kenburns.js"></script>
+	
+	<script type="text/javascript">
+	var titles = ["Epic Day at Refugio",
+				  "Colors of Spring",
+				  "First Flowers",
+				  "Magic Hour at Sands Beach",
+				  "Coal Oil Point",
+				  "Hope Ranch Views"];
+
+	$(document).ready(function() {
+	    $('#kenburns-slideshow').Kenburns({
+	    	images: [
+	    		"images/voyage1.png",
+	    		"images/voyage2.png",
+	    		"images/voyage3.png",
+	    		"images/voyage4.png",
+	    		"images/voyage6.jpg",
+				"images/voyage8.jpg",
+	    	],
+	    	scale:0.75,
+	    	duration:10000,
+	    	fadeSpeed:1200,
+	    	ease3d:'cubic-bezier(0.445, 0.050, 0.550, 0.950)',
+
+	    	onSlideComplete: function(){
+	    		$('#slide-title').html(titles[this.getSlideIndex()]);
+	    	},
+	    	onLoadingComplete: function(){
+	    		$('#status').html("Loading Complete");
+	    	}
+
+	    });
+	});
+	</script>
+</body>
+</html>
